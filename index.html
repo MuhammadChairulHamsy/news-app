@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="./style/styles.css">
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>News<span class="accent">App</span></h1>
+        <p class="tag">Latest headlines &amp; categories</p>
+      </div>
+
+      <div class="controls">
+        <div class="search">
+          <label for="search-input" class="sr-only">Cari berita</label>
+          <input id="search-input" type="search" placeholder="Search news or keywords..." aria-label="Cari berita" />
+          <button id="btn-search" aria-label="Cari">Search</button>
+        </div>
+
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+
+    <nav class="category-nav" aria-label="News categories">
+      <div class="container category-scroll" id="category-list">
+        <!-- Category buttons injected / selectable -->
+        <button class="chip active" data-category="general">All</button>
+        <button class="chip" data-category="business">Business</button>
+        <button class="chip" data-category="technology">Technology</button>
+        <button class="chip" data-category="entertainment">Entertainment</button>
+        <button class="chip" data-category="sports">Sports</button>
+        <button class="chip" data-category="science">Science</button>
+        <button class="chip" data-category="health">Health</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container main-content" id="main">
+    <!-- status / alerts -->
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+    <!-- Articles grid -->
+    <section id="articles" class="articles-grid" aria-live="polite">
+      <!-- Example static card (JS should replace or append real cards) -->
+      <article class="card">
+        <figure class="card-media">
+          <img src="https://via.placeholder.com/640x360?text=News+Image" alt="Sample news image" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Sample headline — Article title goes here</h2>
+          <p class="card-excerpt">Short summary of the article. This is a placeholder to show layout before your JS inserts real data.</p>
+          <div class="meta">
+            <time datetime="2025-11-12">Nov 12, 2025</time>
+            <span class="source">Source Name</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-sm" aria-label="Read more">Read more</button>
+            <button class="btn btn-outline btn-sm" aria-label="Share">Share</button>
+          </div>
+        </div>
+      </article>
+      <!-- /example -->
+    </section>
+
+    <!-- Pagination / load more -->
+    <div class="pager">
+      <button id="load-more" class="btn" type="button">Load more</button>
+    </div>
+  </main>
+
+  <!-- Article Modal (hidden by default) -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content" role="document">
+      <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+      <div id="modal-body" class="modal-body">
+        <!-- Filled by JS: title, image, full content, link to source -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> News App — demo. Data from your chosen news API.</small>
+    </div>
+  </footer>
+
+    <script type="module" src="./js/api.js"></script>
+</body>
+</html>
