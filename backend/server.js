@@ -1,6 +1,6 @@
 import express from "express";
 import fetch from "node-fetch";
-import cors from "ors";
+import cors from "cors";
 
 const app = express();
 const PORT = 5000;
@@ -13,17 +13,17 @@ app.use(
   })
 );
 
-app.get("api/news", async (req, res) => {
+app.get("/api/news", async (req, res) => {
   try {
     const topic = req.query.q || "tesla";
     const url = `${BASE_URL}?q=${topic}&pageSize=5&sortBy=publishedAt&apiKey=${API_KEY}`;
 
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
-    const data = await res.json();
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 
-    console.log(data);
-    return data;
+    const data = await response.json();
+    console.log("✅ Data berita berhasil diambil");
+    res.json(data);
   } catch (error) {
     res.status(500).json({ message: "Gagal ambil data", error: error.message });
   }
