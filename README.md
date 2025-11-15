@@ -238,14 +238,14 @@ This project is licensed under the ISC License.
 
 ## 📸 Screenshots
 
-### Desktop View
-![Desktop View](https://via.placeholder.com/1200x600?text=Desktop+View)
+### Light View
+![Light View](./public/image/light-view.png)
+
+### Dark View
+![Dark View](./public/image/dark-view.png)
 
 ### Mobile View
-![Mobile View](https://via.placeholder.com/400x800?text=Mobile+View)
-
-### Dark/Light Theme
-![Theme Toggle](https://via.placeholder.com/1200x600?text=Theme+Toggle)
+![Mobile View](./public/image/mobile-view.png)
 
 ---
 
