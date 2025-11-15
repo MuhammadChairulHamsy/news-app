@@ -30,13 +30,18 @@ export function displayArticles(articles) {
     .map((article) => {
       const title = article.title || "No title";
       const description = article.description || "No description available";
-      const imageUrl = article.urlToImage || "https://via.placeholder.com/640x360?text=No+Image";
+      const imageUrl =
+        article.urlToImage ||
+        "https://via.placeholder.com/640x360?text=No+Image";
       const source = article.source?.name || "Unknown";
-      const publishedAt = new Date(article.publishedAt).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
+      const publishedAt = new Date(article.publishedAt).toLocaleDateString(
+        "en-US",
+        {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }
+      );
 
       return `
         <article class="card" data-url="${article.url}">
@@ -53,7 +58,10 @@ export function displayArticles(articles) {
             </div>
             <div class="card-actions">
               <button class="btn btn-sm read-more-btn" 
-                data-article='${JSON.stringify(article).replace(/'/g, "&apos;")}'>Read more</button>
+                data-article='${JSON.stringify(article).replace(
+                  /'/g,
+                  "&apos;"
+                )}'>Read more</button>
               <a href="${article.url}" target="_blank" 
                 class="btn btn-outline btn-sm">Open source</a>
             </div>
@@ -75,15 +83,21 @@ export function displayArticles(articles) {
 // Tampilkan modal artikel
 export function openModal(article) {
   modalBody.innerHTML = `
-    <img src="${article.urlToImage || 'https://via.placeholder.com/900x400?text=No+Image'}" alt="${article.title}" />
+    <img src="${
+      article.urlToImage || "https://via.placeholder.com/900x400?text=No+Image"
+    }" alt="${article.title}" />
     <h2>${article.title}</h2>
     <div class="meta" style="margin-bottom: 1rem;">
       <time>${new Date(article.publishedAt).toLocaleString()}</time>
       <span class="source">${article.source?.name || "Unknown"}</span>
     </div>
     <p>${article.description || ""}</p>
-    <p style="color: var(--muted); margin-top: 1rem;">${article.content || "Full content available at source."}</p>
-    <a href="${article.url}" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">Read full article</a>
+    <p style="color: var(--muted); margin-top: 1rem;">${
+      article.content || "Full content available at source."
+    }</p>
+    <a href="${
+      article.url
+    }" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">Read full article</a>
   `;
   modal.setAttribute("aria-hidden", "false");
   modal.classList.add("show");

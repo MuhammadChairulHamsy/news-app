@@ -1,5 +1,11 @@
 import { getNews } from "./api.js";
-import { displayArticles, showStatus, closeModal, modal, modalClose } from "./ui.js";
+import {
+  displayArticles,
+  showStatus,
+  closeModal,
+  modal,
+  modalClose,
+} from "./ui.js";
 
 let currentCategory = "general";
 let currentQuery = "";
