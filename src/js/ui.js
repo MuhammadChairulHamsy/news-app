@@ -30,9 +30,7 @@ export function displayArticles(articles) {
     .map((article) => {
       const title = article.title || "No title";
       const description = article.description || "No description available";
-      const imageUrl =
-        article.urlToImage ||
-        "https://via.placeholder.com/640x360?text=No+Image";
+      const imageUrl = article.urlToImage ||"./public/image/dark-view.png";
       const source = article.source?.name || "Unknown";
       const publishedAt = new Date(article.publishedAt).toLocaleDateString(
         "en-US",
@@ -47,7 +45,7 @@ export function displayArticles(articles) {
         <article class="card" data-url="${article.url}">
           <figure class="card-media">
             <img src="${imageUrl}" alt="${title}" 
-              onerror="this.src='https://via.placeholder.com/640x360?text=No+Image'" />
+              onerror="this.src="./public/image/dark-view.png" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">${title}</h2>

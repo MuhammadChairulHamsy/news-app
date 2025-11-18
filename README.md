@@ -2,8 +2,6 @@
 
 A modern, responsive news application built with vanilla JavaScript that fetches and displays the latest news articles from NewsAPI.org. Features include category filtering, search functionality, and a beautiful dark/light theme.
 
-![News App Preview](https://via.placeholder.com/1200x600?text=News+App+Preview)
-
 ## ✨ Features
 
 - 🔍 **Search Functionality** - Search news by keywords
